@@ -4,6 +4,7 @@ import Entity.Cliente;
 import Entity.Cuota;
 import Entity.Poliza;
 import Entity.Vehiculo;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -58,13 +59,7 @@ public class SegurosService {
         cuota.setNumCuota(mes);
 
         cuota.setMonto(monto / 12);
-
-        if (mes == 2) {
-            cuota.setFechaVto(new Date(fechaActual.getYear() - 1900, mes - 1, 28));
-        } else {
-            cuota.setFechaVto(new Date(fechaActual.getYear() - 1900, mes - 1, 30));
-        }
-
+        cuota.setFechaVto(LocalDate.now().plusMonths(mes));
         return cuota;
     }
 
@@ -72,7 +67,6 @@ public class SegurosService {
         ArrayList<Cuota> cuotas = new ArrayList();
         Cuota cuota = new Cuota();
         Boolean existe = false;
-        Date fechaActual = new Date();
         Poliza poliza = new Poliza();
 
         //Creamos cliente
@@ -95,8 +89,8 @@ public class SegurosService {
         numPolizas.add(poliza.getNumPoliza());
 
         //Fechas
-        poliza.setFechaInicio(fechaActual);
-        poliza.setFechaFinal(fechaActual);
+        poliza.setFechaInicio(LocalDate.now());
+        poliza.setFechaFinal(LocalDate.now());
 
         //Cuotas
         System.out.println("A continuacion se van a generar las cuotas para pagar la póliza de seguro");
@@ -113,7 +107,7 @@ public class SegurosService {
             poliza.setCuotas(cuotas);
             poliza.setFormaPago("Plan de 12 cuotas");
         } else {
-            cuotas.add(new Cuota(1, monto, false, new Date(fechaActual.getYear() - 1900, fechaActual.getMonth() + 2, fechaActual.getDay()), "-"));
+            cuotas.add(new Cuota(1, monto, false, LocalDate.now().plusMonths(1), "-"));
             poliza.setFormaPago("Un solo pago (15% desc).");
             poliza.setCuotas(cuotas);
         }

@@ -1,6 +1,7 @@
 
 package Entity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,8 +11,8 @@ public class Poliza {
     private Cliente cliente;
     private Vehiculo vehiculo;
     private int numPoliza;
-    private Date fechaInicio;
-    private Date fechaFinal;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFinal;
     private ArrayList<Cuota> cuotas;
     private String formaPago;
     private double montoAsegurado;
@@ -23,7 +24,7 @@ public class Poliza {
     public Poliza() {
     }
 
-    public Poliza(Cliente cliente, Vehiculo vehiculo, int numPoliza, Date fechaInicio, Date fechaFinal, ArrayList<Cuota> cuotas, double montoAsegurado, String tipoCobertura) {
+    public Poliza(Cliente cliente, Vehiculo vehiculo, int numPoliza, LocalDate fechaInicio, LocalDate fechaFinal, ArrayList<Cuota> cuotas, double montoAsegurado, String tipoCobertura) {
         this.cliente = cliente;
         this.vehiculo = vehiculo;
         this.numPoliza = numPoliza;
@@ -46,11 +47,11 @@ public class Poliza {
         return numPoliza;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public Date getFechaFinal() {
+    public LocalDate getFechaFinal() {
         return fechaFinal;
     }
 
@@ -90,11 +91,11 @@ public class Poliza {
         this.numPoliza = numPoliza;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
+    public void setFechaFinal(LocalDate fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
@@ -133,7 +134,7 @@ public class Poliza {
 
     @Override
     public String toString() {
-        return "Poliza{" + "Cliente=" + cliente + ", Vehiculo=" + vehiculo + ", Numero de Poliza=" + numPoliza + ", Fecha Inicio: " + fechaInicio.toString() + ", Fecha Final:" + fechaFinal.toString() + ", Cuotas=" + cuotas + ", Forma de Pago: " + formaPago + ", Monto Asegurado = $" + montoAsegurado + ", Incluye Granizo: " + granizo + ", Monto Granizo = $" + montoGranizo + ", Tipo de Cobertura: " + tipoCobertura + '}';
+        return "Poliza{" + "Cliente=" + cliente + ", Vehiculo=" + vehiculo + ", Numero de Poliza=" + numPoliza + ", Fecha Inicio: " + fechaInicio + ", Fecha Final:" + fechaFinal + ", Cuotas=" + cuotas + ", Forma de Pago: " + formaPago + ", Monto Asegurado = $" + montoAsegurado + ", Incluye Granizo: " + granizo + ", Monto Granizo = $" + montoGranizo + ", Tipo de Cobertura: " + tipoCobertura + '}';
     }
 
    

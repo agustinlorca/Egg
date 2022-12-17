@@ -1,21 +1,22 @@
 
 package Entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 
 public class Cuota {
     private int numCuota;
     private double monto;
     private boolean estaPaga;
-    private Date fechaVto;
+    private LocalDate fechaVto;
     private String formaPago ="-";
     
 
     public Cuota() {
     }
 
-    public Cuota(int numCuota, double monto, boolean estaPaga, Date fechaVto, String formaPago) {
+    public Cuota(int numCuota, double monto, boolean estaPaga, LocalDate fechaVto, String formaPago) {
         this.numCuota = numCuota;
         this.monto = monto;
         this.estaPaga = estaPaga;
@@ -35,7 +36,7 @@ public class Cuota {
         return estaPaga;
     }
 
-    public Date getFechaVto() {
+    public LocalDate getFechaVto() {
         return fechaVto;
     }
 
@@ -55,7 +56,7 @@ public class Cuota {
         this.estaPaga = estaPaga;
     }
 
-    public void setFechaVto(Date fechaVto) {
+    public void setFechaVto(LocalDate fechaVto) {
         this.fechaVto = fechaVto;
     }
 
@@ -68,7 +69,7 @@ public class Cuota {
     
     @Override
     public String toString() {
-        return "Cuota N°" + numCuota+" {" + "Monto = $" + monto + ", Esta paga: " + estaPaga + ", FechaVto: " + fechaVto.toString() + ", Forma de pago: " + formaPago + '}';
+        return "Cuota N°" + numCuota+" {" + "Monto = $" + monto + ", Esta paga: " + estaPaga + ", FechaVto: " + fechaVto + ", Forma de pago: " + formaPago + '}';
     }
     
     
